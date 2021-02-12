@@ -3,7 +3,7 @@ import cv2
 import json
 import copy
 import numpy as np
-from src.node import Coordinate, Node, Group
+from src.node import Coordinate, Node, Group,get_default_text_size
 from src.render import Render
 
 
@@ -19,6 +19,8 @@ class Layout:
         self.max_node_support = 999
         self.start_parent_id = -1
         self.maps, self.groups = self.translate_maps()
+        self.replace_groups_key()
+        assert self.check_all_node_relative_assigned()
         self.calc_canvas()
 
     def translate_maps(self):
@@ -55,35 +57,64 @@ class Layout:
                              layer_id=parent_layer_id + 1,
                              children=candidate_children_node_id,
                              parent=parent_node_id,
-                             group_id=groups[parent_node_id])
+                             group_id=groups[parent_node_id].group_id)
             maps[node_id] = this_node
             candidates += candidate_children_description
             _iter += 1
             assert _iter < self.max_node_support, 'Surpass the max node number limit'
 
-        # check groups contain equal to maps , and assign
-        cnt = 0
-        for p in groups:
-            groups[p].calc_relative_coord(maps)
-            cnt += len(groups[p].contains)
-        assert cnt == len(maps), 'translate_maps error happened!!'
+        for group_id in groups:
+            groups[group_id].calc_relative_coord(maps)
         return maps, groups
+
+    def replace_groups_key(self):
+        groups_update = dict()
+        for parent_node_id in self.groups:
+            groups_update[self.groups[parent_node_id].group_id] = copy.deepcopy(self.groups[parent_node_id])
+        self.groups = groups_update
 
     def check_all_node_relative_assigned(self):
         cnt_assigned = 0
         for node_id in self.maps:
-            if self.maps[node_id].relative_coord.x is not None and self.maps[node_id].relative_coord.y is not None:
+            if self.maps[node_id].valid_relative_coord():
                 cnt_assigned += 1
         if cnt_assigned == len(self.maps):
             return True
         else:
             return False
 
+    def check_all_group_assigned(self):
+        cnt_assigned = 0
+        for group_id in self.groups:
+            if self.groups[group_id].valid_bbox_lt():
+                cnt_assigned += 1
+        if cnt_assigned == len(self.groups):
+            return True
+        else:
+            return False
+
     def calc_canvas(self):
-        assert self.check_all_node_relative_assigned()
+        self.maps = self.maps
+        self.groups = self.groups
+        text_width, text_height = get_default_text_size()
 
+        self.groups[0].assign_group_bbox(sx=0, sy=0, maps=self.maps)
+        while self.check_all_group_assigned() is False:
+            for group_id in self.groups:
+                parent_node_id = self.groups[group_id].parent_node_id
+                if parent_node_id == self.start_parent_id or self.groups[group_id].valid_bbox_lt() is True:
+                    continue
+                parent_group_id = self.maps[parent_node_id].group_id
+                if self.groups[parent_group_id].valid_bbox_lt() is False:
+                    continue
+                this_group_cx = self.maps[parent_node_id].absolute_coord.x
+                this_group_sy = self.groups[parent_group_id].rb.y + text_height
+                this_group_sx = this_group_cx - int(self.groups[group_id].bbox_size[0]/2)
+                self.groups[group_id].assign_group_bbox(sx=this_group_sx, sy=this_group_sy, maps=self.maps)
+                pass
+        ins_render = Render(self.maps, self.groups)
+        ins_render.render()
         pass
-
 
     # def calc_pos_by_parent(self, layer_step, node_step, parent_node_id, contains):
     #     parent_x = self.maps[parent_node_id].absolute_coord.x

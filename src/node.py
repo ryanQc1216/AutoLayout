@@ -4,13 +4,9 @@ import json
 import copy
 import numpy as np
 
+from src.render import get_default_text_size
 
 
-def get_default_text_size():
-    text_size, baseline = cv2.getTextSize('0000', fontFace=cv2.FONT_HERSHEY_PLAIN, fontScale=1.0, thickness=1)
-    text_width = text_size[0]
-    text_height = text_size[1]
-    return text_width, text_height
 
 class Coordinate:
     def __init__(self, x=None, y=None):
@@ -36,6 +32,11 @@ class Node:
         self.absolute_coord.x = x
         self.absolute_coord.y = y
 
+    def assign_absolute_by_relative(self, group_sx, group_sy):
+        assert self.valid_relative_coord()
+        self.absolute_coord.x = self.relative_coord.x + group_sx
+        self.absolute_coord.y = self.relative_coord.y + group_sy
+
     def valid_absolute_coord(self):
         if self.absolute_coord.x is None or self.absolute_coord.y is None:
             return False
@@ -51,8 +52,6 @@ class Node:
         return True
 
 
-
-
 class Group:
     def __init__(self, contains, group_id, layer_id, parent_node_id):
         self.contains = copy.deepcopy(contains)
@@ -63,13 +62,28 @@ class Group:
         self.text_width, self.text_height = get_default_text_size()
         self.boarder = self.text_width
         self.bbox_size = None
+        self.lt = Coordinate()
+        self.rb = Coordinate()
 
     def calc_relative_coord(self, maps):
         pos_x, pos_y = self.boarder, self.boarder
         for idx in range(len(self.contains)):
             node_id = self.contains[idx]
             maps[node_id].assign_relative_coord(pos_x, pos_y)
-            pos_x += self.text_width+self.boarder
+            pos_x += self.text_width + self.boarder
         pos_y += self.text_height + self.boarder
         self.bbox_size = (pos_x, pos_y)
         pass
+
+    def assign_group_bbox(self, sx, sy, maps):
+        self.lt.set_coord(sx, sy)
+        self.rb.set_coord(sx + self.bbox_size[0], sy + self.bbox_size[1])
+        # let's modify the map's valid_absolute_coord of nodes
+        for idx in range(len(self.contains)):
+            node_id = self.contains[idx]
+            maps[node_id].assign_absolute_by_relative(sx, sy)
+
+    def valid_bbox_lt(self):
+        if self.lt.x is None or self.lt.y is None:
+            return False
+        return True
