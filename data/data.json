@@ -1,0 +1,605 @@
+{
+  "label": "Breaker",
+  "id": 3341,
+  "children": [
+    {
+      "label": "PowerTransformer",
+      "id": 3845,
+      "parentId": 3341,
+      "name": "广德华仑置业有限公司"
+    },
+    {
+      "label": "Substation",
+      "id": 3354,
+      "children": [
+        {
+          "label": "Breaker",
+          "id": 3345,
+          "children": [
+            {
+              "label": "Substation",
+              "id": 3361,
+              "children": [
+                
+              ],
+              "parentId": 3345,
+              "name": "广德县蝶逅主题酒店配电室"
+            },
+            {
+              "label": "Substation",
+              "id": 3358,
+              "children": [
+                {
+                  "label": "Substation",
+                  "id": 3355,
+                  "children": [
+                    
+                  ],
+                  "parentId": 3358,
+                  "name": "城区大观国际2号#13190359箱变"
+                }
+              ],
+              "parentId": 3345,
+              "name": "大观国际2#开闭所"
+            },
+            {
+              "label": "Substation",
+              "id": 3362,
+              "children": [
+                
+              ],
+              "parentId": 3345,
+              "name": "恒基公司"
+            },
+            {
+              "label": "Breaker",
+              "id": 3349,
+              "children": [
+                {
+                  "label": "Breaker",
+                  "id": 3344,
+                  "children": [
+                    {
+                      "label": "Fuse",
+                      "id": 3784,
+                      "children": [
+                        {
+                          "label": "PowerTransformer",
+                          "id": 3837,
+                          "parentId": 3784,
+                          "name": "南门花园#13190008公用变"
+                        }
+                      ],
+                      "parentId": 3344,
+                      "name": "南门花园跌落式熔断器"
+                    },
+                    {
+                      "label": "Breaker",
+                      "id": 3340,
+                      "children": [
+                        {
+                          "label": "Fuse",
+                          "id": 3796,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3806,
+                              "parentId": 3796,
+                              "name": "城南小区1号#13190002公用变"
+                            }
+                          ],
+                          "parentId": 3340,
+                          "name": "城南小区1#跌落式熔断器"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3789,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3847,
+                              "parentId": 3789,
+                              "name": "柴火巷#13190001公用变"
+                            }
+                          ],
+                          "parentId": 3340,
+                          "name": "柴火巷跌落式熔断器"
+                        },
+                        {
+                          "label": "Substation",
+                          "id": 3359,
+                          "children": [
+                            
+                          ],
+                          "parentId": 3340,
+                          "name": "广德县人民医院配电室"
+                        },
+                        {
+                          "label": "Breaker",
+                          "id": 3351,
+                          "parentId": 3340,
+                          "name": "10kV城南121线1#联络开关"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3787,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3834,
+                              "parentId": 3787,
+                              "name": "后湾#13190004公用变"
+                            }
+                          ],
+                          "parentId": 3340,
+                          "name": "后湾公用变跌落式熔断器"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3795,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3816,
+                              "parentId": 3795,
+                              "name": "南海宾馆柱上变7280020255"
+                            }
+                          ],
+                          "parentId": 3340,
+                          "name": "南海宾馆跌落式熔断器"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3793,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3808,
+                              "parentId": 3793,
+                              "name": "城南小区2号#13190003公用变"
+                            }
+                          ],
+                          "parentId": 3340,
+                          "name": "城南小区2#跌落式熔断器"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3801,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3854,
+                              "parentId": 3801,
+                              "name": "城区城南小区3号#13190356公用变"
+                            }
+                          ],
+                          "parentId": 3340,
+                          "name": "城南小区3号#13190356公用变跌落式熔断器"
+                        }
+                      ],
+                      "parentId": 3344,
+                      "name": "城南121-4开关"
+                    },
+                    {
+                      "label": "Fuse",
+                      "id": 3797,
+                      "children": [
+                        {
+                          "label": "PowerTransformer",
+                          "id": 3855,
+                          "parentId": 3797,
+                          "name": "气象小区1号#13190130公用变"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3786,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3836,
+                              "parentId": 3786,
+                              "name": "凤井一队#13190124公用变"
+                            }
+                          ],
+                          "parentId": 3797,
+                          "name": "凤井一队跌落式熔断器"
+                        },
+                        {
+                          "label": "Substation",
+                          "id": 3357,
+                          "children": [
+                            
+                          ],
+                          "parentId": 3797,
+                          "name": "安徽久和投资有限公司配电室"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3794,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3849,
+                              "parentId": 3794,
+                              "name": "广德广聚德大酒店7280020642-1"
+                            }
+                          ],
+                          "parentId": 3797,
+                          "name": "广聚德酒店跌落式熔断器"
+                        },
+                        {
+                          "label": "Breaker",
+                          "id": 3350,
+                          "parentId": 3797,
+                          "name": "中鼎景苑小区电源开关"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3802,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3820,
+                              "parentId": 3802,
+                              "name": "城区凤井西路#13190355公用变"
+                            }
+                          ],
+                          "parentId": 3797,
+                          "name": "凤井西路#13190355公用变跌落式熔断器"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3791,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3807,
+                              "parentId": 3791,
+                              "name": "广德县储备库7280020092-1"
+                            }
+                          ],
+                          "parentId": 3797,
+                          "name": "粮食储备库跌落式熔断器"
+                        },
+                        {
+                          "label": "Fuse",
+                          "id": 3783,
+                          "children": [
+                            {
+                              "label": "PowerTransformer",
+                              "id": 3848,
+                              "parentId": 3783,
+                              "name": "气象小区2号#13190129公用变"
+                            }
+                          ],
+                          "parentId": 3797,
+                          "name": "气象小区2#跌落式熔断器"
+                        }
+                      ],
+                      "parentId": 3344,
+                      "name": "福利院分支线跌落式熔断器"
+                    },
+                    {
+                      "label": "PowerTransformer",
+                      "id": 3842,
+                      "parentId": 3344,
+                      "name": "清溪供销社(煤基厂)7280020519-1"
+                    },
+                    {
+                      "label": "Fuse",
+                      "id": 3790,
+                      "children": [
+                        {
+                          "label": "PowerTransformer",
+                          "id": 3823,
+                          "parentId": 3790,
+                          "name": "街道1号#13190128公用变"
+                        }
+                      ],
+                      "parentId": 3344,
+                      "name": "街道#1跌落式熔断器"
+                    }
+                  ],
+                  "parentId": 3349,
+                  "name": "110kV苏觉站10kV西关124-4开关"
+                },
+                {
+                  "label": "PowerTransformer",
+                  "id": 3817,
+                  "parentId": 3349,
+                  "name": "广德县民政局"
+                },
+                {
+                  "label": "Fuse",
+                  "id": 3798,
+                  "children": [
+                    {
+                      "label": "Substation",
+                      "id": 3356,
+                      "children": [
+                        
+                      ],
+                      "parentId": 3798,
+                      "name": "横南路东1号#13190135公用变"
+                    }
+                  ],
+                  "parentId": 3349,
+                  "name": "横南路东#1箱式变跌落式熔断器"
+                },
+                {
+                  "label": "Fuse",
+                  "id": 3800,
+                  "children": [
+                    {
+                      "label": "Substation",
+                      "id": 3376,
+                      "children": [
+                        
+                      ],
+                      "parentId": 3800,
+                      "name": "横南路东2号#13190136公用变"
+                    }
+                  ],
+                  "parentId": 3349,
+                  "name": "横南路东#2箱式变跌落式熔断器"
+                },
+                {
+                  "label": "Breaker",
+                  "id": 3348,
+                  "children": [
+                    {
+                      "label": "Feeder",
+                      "id": 3874,
+                      "parentId": 3348,
+                      "name": "10kV轧钢厂115线大馈线"
+                    }
+                  ],
+                  "parentId": 3349,
+                  "name": "110kV苏觉站10kV西关124-3开关"
+                }
+              ],
+              "parentId": 3345,
+              "name": "110kV苏觉站10kV西关124-2开关"
+            },
+            {
+              "label": "Substation",
+              "id": 3352,
+              "children": [
+                
+              ],
+              "parentId": 3345,
+              "name": "横南路东3#13190137公用变"
+            },
+            {
+              "label": "PowerTransformer",
+              "id": 3826,
+              "parentId": 3345,
+              "name": "广德华仑置业有限公司"
+            },
+            {
+              "label": "Substation",
+              "id": 3365,
+              "children": [
+                
+              ],
+              "parentId": 3345,
+              "name": "城区华东#箱变"
+            }
+          ],
+          "parentId": 3354,
+          "name": "西关124-1柱上断路器"
+        },
+        {
+          "label": "Breaker",
+          "id": 3346,
+          "children": [
+            {
+              "label": "Feeder",
+              "id": 3875,
+              "parentId": 3346,
+              "name": "10kV凤井114线大馈线"
+            }
+          ],
+          "parentId": 3354,
+          "name": "10kV凤井114线2#联络开关"
+        }
+      ],
+      "parentId": 3341,
+      "name": "西关124线主线电缆分支箱"
+    },
+    {
+      "label": "PowerTransformer",
+      "id": 3809,
+      "parentId": 3341,
+      "name": "广德元亨房地产开发有限公司（凤麟府3#专变）"
+    },
+    {
+      "label": "PowerTransformer",
+      "id": 3833,
+      "parentId": 3341,
+      "name": "广德元亨房地产开发有限公司（凤麟府2#专变）"
+    },
+    {
+      "label": "PowerTransformer",
+      "id": 3846,
+      "parentId": 3341,
+      "name": "广德元亨房地产开发有限公司（凤麟府1#专变）"
+    },
+    {
+      "label": "PowerTransformer",
+      "id": 3835,
+      "parentId": 3341,
+      "name": "广德元亨房地产开发有限公司（凤麟府4#专变）"
+    },
+    {
+      "label": "PowerTransformer",
+      "id": 3853,
+      "parentId": 3341,
+      "name": "广德华仑置业有限公司7236197014-1"
+    },
+    {
+      "label": "Breaker",
+      "id": 3347,
+      "children": [
+        {
+          "label": "Substation",
+          "id": 3372,
+          "children": [
+            {
+              "label": "Substation",
+              "id": 3373,
+              "children": [
+                
+              ],
+              "parentId": 3372,
+              "name": "凤麟府小区配电房"
+            }
+          ],
+          "parentId": 3347,
+          "name": "凤麟府小区总配电房"
+        }
+      ],
+      "parentId": 3341,
+      "name": "凤麟府#0112用户开关"
+    },
+    {
+      "label": "Substation",
+      "id": 3378,
+      "children": [
+        {
+          "label": "Substation",
+          "id": 3379,
+          "children": [
+            {
+              "label": "Substation",
+              "id": 3363,
+              "children": [
+                
+              ],
+              "parentId": 3379,
+              "name": "城区新徽商小区8号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3370,
+              "children": [
+                
+              ],
+              "parentId": 3379,
+              "name": " 城区新徽商小区10号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3368,
+              "children": [
+                
+              ],
+              "parentId": 3379,
+              "name": "城区新徽商小区4号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3369,
+              "children": [
+                
+              ],
+              "parentId": 3379,
+              "name": "城区新徽商小区7号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3371,
+              "children": [
+                
+              ],
+              "parentId": 3379,
+              "name": "城区新徽商小区2号箱变"
+            }
+          ],
+          "parentId": 3378,
+          "name": "10kV桃安128线新徽商环网柜"
+        },
+        {
+          "label": "Substation",
+          "id": 3377,
+          "children": [
+            {
+              "label": "Substation",
+              "id": 3380,
+              "children": [
+                
+              ],
+              "parentId": 3377,
+              "name": "城区新徽商小区9号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3375,
+              "children": [
+                
+              ],
+              "parentId": 3377,
+              "name": "城区新徽商小区6号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3366,
+              "children": [
+                
+              ],
+              "parentId": 3377,
+              "name": "城区新徽商小区11号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3364,
+              "children": [
+                
+              ],
+              "parentId": 3377,
+              "name": "城区新徽商小区3号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3367,
+              "children": [
+                
+              ],
+              "parentId": 3377,
+              "name": "城区新徽商小区5号箱变"
+            },
+            {
+              "label": "Substation",
+              "id": 3353,
+              "children": [
+                
+              ],
+              "parentId": 3377,
+              "name": "城区新徽商小区1号箱变"
+            }
+          ],
+          "parentId": 3378,
+          "name": "10kV徽商117线新徽商环网柜"
+        }
+      ],
+      "parentId": 3341,
+      "name": "10kV徽商117线/10kV桃安128线新徽商环网柜"
+    },
+    {
+      "label": "Substation",
+      "id": 3374,
+      "children": [
+        
+      ],
+      "parentId": 3341,
+      "name": "宣城市新徽商房地产开发有限公司配电室"
+    },
+    {
+      "label": "Feeder",
+      "id": 3877,
+      "parentId": 3341,
+      "name": "10kV西关124线大馈线"
+    }
+  ],
+  "name": "西关线124断路器"
+}
