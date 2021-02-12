@@ -107,8 +107,8 @@ class Layout:
                 parent_group_id = self.maps[parent_node_id].group_id
                 if self.groups[parent_group_id].valid_bbox_lt() is False:
                     continue
-                this_group_cx = self.maps[parent_node_id].absolute_coord.x
-                this_group_sy = self.groups[parent_group_id].rb.y + text_height
+                this_group_cx = self.maps[parent_node_id].absolute_coord.x + int(text_width/2)
+                this_group_sy = self.groups[parent_group_id].rb.y + text_width
                 this_group_sx = this_group_cx - int(self.groups[group_id].bbox_size[0]/2)
                 self.groups[group_id].assign_group_bbox(sx=this_group_sx, sy=this_group_sy, maps=self.maps)
                 pass

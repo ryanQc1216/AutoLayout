@@ -57,6 +57,14 @@ class Render:
             cv2.rectangle(image,
                           (lt.x + self.offset_x, lt.y + self.offset_y), (rb.x + self.offset_x, rb.y + self.offset_y),
                           (0, 0, 255), 1)
+
+            parent_node_id = self.groups[group_id].parent_node_id
+            if parent_node_id in self.maps:
+                parent_node_coord = self.maps[parent_node_id].absolute_coord
+                start_pt = (parent_node_coord.x+int(text_width/2) + self.offset_x, parent_node_coord.y + self.offset_y)
+                end_pt = (int((lt.x+rb.x)/2) + self.offset_x, lt.y + self.offset_y)
+                cv2.line(image, start_pt, end_pt, (0, 0, 255), 1)
+
         cv2.imshow('canvas', image)
         cv2.imwrite('./canvas.jpg', image)
         cv2.waitKey(0)
