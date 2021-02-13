@@ -9,7 +9,7 @@ MAX_VALUE = 1e6
 MIN_VALUE = -1e6
 SMALL_VALUE = 1e-6
 
-FONT_SCALE = 0.8
+FONT_SCALE = 0.6
 
 def get_default_text_size():
     text_size, baseline = cv2.getTextSize('0000', fontFace=cv2.FONT_HERSHEY_PLAIN, fontScale=FONT_SCALE, thickness=1)

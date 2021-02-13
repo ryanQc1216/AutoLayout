@@ -1,0 +1,2418 @@
+{
+	"label": "Feeder",
+	"properties": {
+		"mRID": "{mRID=30500000_366066}->{mRID=10000100_11757}",
+		"substation": "30000000_484009",
+		"apptype": "1",
+		"name": "10kV军二线123",
+		"currentFeeder": "921:true",
+		"psrType": "站外-大馈线",
+		"graphId": 921,
+		"normalHeadTerminal": "30500000_366066_2"
+	},
+	"incoming": [{
+		"id": 14076,
+		"start": 7761,
+		"end": 8019,
+		"type": "Link",
+		"properties": {
+			"mRID": "{mRID=30500000_366066}->{mRID=10000100_11757}",
+			"normalHeadTerminal": "30500000_366066_2"
+		}
+	}],
+	"id": 8019,
+	"children": [{
+		"label": "Breaker",
+		"properties": {
+			"container": "30000000_484009",
+			"_toleafMaxLevel": 4,
+			"containerType": "Substation",
+			"apptype": "1",
+			"started": true,
+			"psrType": "站内-断路器",
+			"mdNetFlag": 1,
+			"_fromStartLevel": 0,
+			"mRID": "30500000_366066",
+			"baseVoltage": "交流10kV",
+			"normalOpen": "close",
+			"boundType": 1,
+			"name": "10kV军二线123断路器",
+			"asset": "D489F7E9-101E-453D-A6A3-4321A963EC37-00009",
+			"graphId": 921,
+			"_toleafMaxDepth": 84,
+			"_fromStartDepth": 0,
+			"open": "close"
+		},
+		"outgoing": [{
+			"id": 18550,
+			"start": 7761,
+			"end": 8129,
+			"type": "MinConnect",
+			"properties": {
+				"thirdNdId": 7763,
+				"_curDepth": 1,
+				"_maxDepth": 2,
+				"_auxEdge_": 0
+			}
+		}, {
+			"id": 14076,
+			"start": 7761,
+			"end": 8019,
+			"type": "Link",
+			"properties": {
+				"mRID": "{mRID=30500000_366066}->{mRID=10000100_11757}",
+				"normalHeadTerminal": "30500000_366066_2"
+			}
+		}],
+		"id": 7761,
+		"children": [{
+			"label": "Breaker",
+			"properties": {
+				"container": "10000100_11757",
+				"_toleafMaxLevel": 2,
+				"containerType": "Feeder",
+				"apptype": "1",
+				"started": false,
+				"psrType": "柱上-断路器",
+				"_fromStartLevel": 1,
+				"mRID": "11100000_218099",
+				"baseVoltage": "交流10kV",
+				"normalOpen": "close",
+				"boundType": 0,
+				"name": "三里小学12310开关",
+				"asset": "57ccfa41fb8a0a7df0661344ba016657cac2d2190a",
+				"graphId": 921,
+				"_toleafMaxDepth": 78,
+				"open": "close",
+				"_fromStartDepth": 4,
+				"thirdNdId": 7761,
+				"_auxEdge_": 1
+			},
+			"outgoing": [{
+				"id": 18663,
+				"start": 7763,
+				"end": 8135,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7795,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18636,
+				"start": 7763,
+				"end": 8098,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7760,
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18645,
+				"start": 7763,
+				"end": 7768,
+				"type": "MinLink",
+				"properties": {
+					"thirdNdId": 7954,
+					"_in_acId": 7954,
+					"_in_bkId": 7756,
+					"_inPath": "(ac:7954)->(cn:8141)->(bk:7756)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8141
+				}
+			}, {
+				"id": 18570,
+				"start": 7763,
+				"end": 8153,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8004,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18563,
+				"start": 7763,
+				"end": 8155,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8002,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18681,
+				"start": 7763,
+				"end": 8126,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7803,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18650,
+				"start": 7763,
+				"end": 8142,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7976,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18617,
+				"start": 7763,
+				"end": 8119,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8013,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18688,
+				"start": 7763,
+				"end": 8045,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7999,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18633,
+				"start": 7763,
+				"end": 8077,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8015,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18655,
+				"start": 7763,
+				"end": 8070,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7982,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18683,
+				"start": 7763,
+				"end": 8109,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7996,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18659,
+				"start": 7763,
+				"end": 8028,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7792,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18649,
+				"start": 7763,
+				"end": 7773,
+				"type": "MinLink",
+				"properties": {
+					"_inLineNo": 0,
+					"thirdNdId": 7893,
+					"_in_acId": 7893,
+					"_in_bkId": 7784,
+					"_inPath": "(ac:7893)->(cn:8028)->(bk:7784)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8028
+				}
+			}, {
+				"id": 18661,
+				"start": 7763,
+				"end": 8042,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7985,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18605,
+				"start": 7763,
+				"end": 8130,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8011,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18648,
+				"start": 7763,
+				"end": 7772,
+				"type": "MinLink",
+				"properties": {
+					"_inLineNo": 0,
+					"thirdNdId": 7960,
+					"_in_acId": 7960,
+					"_in_bkId": 7967,
+					"_inPath": "(ac:7960)->(cn:8072)->(bk:7967)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8072
+				}
+			}, {
+				"id": 18652,
+				"start": 7763,
+				"end": 8025,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7979,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18677,
+				"start": 7763,
+				"end": 8048,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7992,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18647,
+				"start": 7763,
+				"end": 7770,
+				"type": "MinLink",
+				"properties": {
+					"_inLineNo": 0,
+					"thirdNdId": 7914,
+					"_in_acId": 7914,
+					"_in_bkId": 7782,
+					"_inPath": "(ac:7914)->(cn:8126)->(bk:7782)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8126
+				}
+			}, {
+				"id": 18667,
+				"start": 7763,
+				"end": 8039,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7796,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18640,
+				"start": 7763,
+				"end": 8089,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7762,
+					"_curDepth": 2,
+					"_maxDepth": 1,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18644,
+				"start": 7763,
+				"end": 7767,
+				"type": "MinLink",
+				"properties": {
+					"_inLineNo": 0,
+					"thirdNdId": 7952,
+					"_in_acId": 7952,
+					"_in_bkId": 7788,
+					"_inPath": "(ac:7952)->(cn:8039)->(bk:7788)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8039
+				}
+			}, {
+				"id": 18556,
+				"start": 7763,
+				"end": 8043,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8000,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18685,
+				"start": 7763,
+				"end": 8106,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7998,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18575,
+				"start": 7763,
+				"end": 8123,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8005,
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18665,
+				"start": 7763,
+				"end": 8072,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7987,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18646,
+				"start": 7763,
+				"end": 7769,
+				"type": "MinLink",
+				"properties": {
+					"thirdNdId": 7954,
+					"_in_acId": 7954,
+					"_in_bkId": 7802,
+					"_inPath": "(ac:7954)->(cn:8141)->(bk:7802)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8141
+				}
+			}, {
+				"id": 18669,
+				"start": 7763,
+				"end": 8104,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7988,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18630,
+				"start": 7763,
+				"end": 8134,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7758,
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18638,
+				"start": 7763,
+				"end": 8122,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8018,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18589,
+				"start": 7763,
+				"end": 8076,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8009,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18582,
+				"start": 7763,
+				"end": 8152,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8008,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18657,
+				"start": 7763,
+				"end": 8060,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7983,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18673,
+				"start": 7763,
+				"end": 8036,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7990,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18591,
+				"start": 7763,
+				"end": 8150,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8010,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18679,
+				"start": 7763,
+				"end": 8094,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7801,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18671,
+				"start": 7763,
+				"end": 8047,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7989,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18675,
+				"start": 7763,
+				"end": 8118,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7991,
+					"_auxEdge_": 0
+				}
+			}, {
+				"id": 18643,
+				"start": 7763,
+				"end": 7766,
+				"type": "MinLink",
+				"properties": {
+					"thirdNdId": 7954,
+					"_in_acId": 7954,
+					"_in_bkId": 7804,
+					"_inPath": "(ac:7954)->(cn:8141)->(bk:7804)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8141
+				}
+			}, {
+				"id": 18566,
+				"start": 7763,
+				"end": 8022,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 8003,
+					"_auxEdge_": 0
+				}
+			}],
+			"incoming": [{
+				"id": 18553,
+				"start": 8129,
+				"end": 7763,
+				"type": "MinConnect",
+				"properties": {
+					"thirdNdId": 7761,
+					"_auxEdge_": 1
+				}
+			}],
+			"id": 7763,
+			"children": [{
+				"label": "Breaker",
+				"properties": {
+					"container": "10000100_11757",
+					"_toleafMaxLevel": 1,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"started": false,
+					"psrType": "柱上-断路器",
+					"_fromStartLevel": 2,
+					"mRID": "11100000_218095",
+					"baseVoltage": "交流10kV",
+					"normalOpen": "close",
+					"boundType": 0,
+					"name": "陶院12320开关",
+					"asset": "57cb1aaff68a0a7df0661344ba016657c8e47e16a3",
+					"graphId": 921,
+					"_toleafMaxDepth": 10,
+					"_fromStartDepth": 72,
+					"open": "close",
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"outgoing": [{
+					"id": 18725,
+					"start": 7760,
+					"end": 8112,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7993,
+						"_auxEdge_": 0
+					}
+				}, {
+					"id": 18721,
+					"start": 7760,
+					"end": 8079,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7986,
+						"_auxEdge_": 0
+					}
+				}, {
+					"id": 18732,
+					"start": 7760,
+					"end": 8078,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7997,
+						"_auxEdge_": 0
+					}
+				}],
+				"incoming": [{
+					"id": 18637,
+					"start": 8098,
+					"end": 7760,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7760,
+				"children": [{
+					"label": "PowerTransformer",
+					"properties": {
+						"container": "10000100_11757",
+						"vectorGroup": "YDn11",
+						"_toleafMaxLevel": 0,
+						"containerType": "Feeder",
+						"apptype": "5",
+						"psrType": "柱上-用户变压器",
+						"_fromStartLevel": 3,
+						"mRID": "11000001_892132",
+						"boundType": 0,
+						"name": "庐江县夏新建材有限公司8300224881-1",
+						"asset": "49850089",
+						"graphId": 921,
+						"_fromStartDepth": 80,
+						"thirdNdId": 7760,
+						"_auxEdge_": 1
+					},
+					"incoming": [{
+						"id": 18726,
+						"start": 8112,
+						"end": 7993,
+						"type": "MinConnect",
+						"properties": {
+							"thirdNdId": 7760,
+							"_auxEdge_": 1
+						}
+					}],
+					"id": 7993,
+					"parentId": 7760
+				}, {
+					"label": "PowerTransformer",
+					"properties": {
+						"container": "10000100_11757",
+						"vectorGroup": "YDn11",
+						"_toleafMaxLevel": 0,
+						"containerType": "Feeder",
+						"apptype": "5",
+						"psrType": "柱上-用户变压器",
+						"_fromStartLevel": 3,
+						"mRID": "11000001_892130",
+						"boundType": 0,
+						"name": "庐江县春笋建筑安装工程有限公司8332000077-1",
+						"asset": "49853563",
+						"graphId": 921,
+						"_fromStartDepth": 82,
+						"thirdNdId": 7760,
+						"_auxEdge_": 1
+					},
+					"incoming": [{
+						"id": 18724,
+						"start": 8079,
+						"end": 7986,
+						"type": "MinConnect",
+						"properties": {
+							"thirdNdId": 7760,
+							"_auxEdge_": 1
+						}
+					}],
+					"id": 7986,
+					"parentId": 7760
+				}, {
+					"label": "PowerTransformer",
+					"properties": {
+						"container": "10000100_11757",
+						"vectorGroup": "YDn11",
+						"_toleafMaxLevel": 0,
+						"containerType": "Feeder",
+						"apptype": "5",
+						"psrType": "柱上-用户变压器",
+						"_fromStartLevel": 3,
+						"mRID": "11000001_2264070",
+						"boundType": 0,
+						"name": "庐江县张庆汉再生资源回收有限公司",
+						"asset": "6737954434",
+						"graphId": 921,
+						"_fromStartDepth": 76,
+						"thirdNdId": 7760,
+						"_auxEdge_": 1
+					},
+					"incoming": [{
+						"id": 18735,
+						"start": 8078,
+						"end": 7997,
+						"type": "MinConnect",
+						"properties": {
+							"thirdNdId": 7760,
+							"_auxEdge_": 1
+						}
+					}],
+					"id": 7997,
+					"parentId": 7760
+				}],
+				"parentId": 7763
+			}, {
+				"label": "Substation",
+				"properties": {
+					"mRID": "32300000_1037169",
+					"_toleafMaxLevel": 0,
+					"apptype": "1",
+					"name": "陶院安置房（二期）2#",
+					"psrType": "箱式变电站",
+					"asset": "e2c1979b9c8a0a7de5589cad460158e2befe4114c5",
+					"graphId": 921,
+					"_fromStartLevel": 2,
+					"_fromStartDepth": 25,
+					"mdNetFlag": 0,
+					"thirdNdId": 7954,
+					"_in_acId": 7954,
+					"_in_bkId": 7756,
+					"_inPath": "(ac:7954)->(cn:8141)->(bk:7756)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8141
+				},
+				"outgoing": [{
+					"id": 21837,
+					"start": 7768,
+					"end": 7790,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21833,
+					"start": 7768,
+					"end": 7804,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21831,
+					"start": 7768,
+					"end": 7978,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21827,
+					"start": 7768,
+					"end": 7995,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21829,
+					"start": 7768,
+					"end": 7802,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21835,
+					"start": 7768,
+					"end": 8014,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}],
+				"incoming": [{
+					"id": 18645,
+					"start": 7763,
+					"end": 7768,
+					"type": "MinLink",
+					"properties": {
+						"thirdNdId": 7954,
+						"_in_acId": 7954,
+						"_in_bkId": 7756,
+						"_inPath": "(ac:7954)->(cn:8141)->(bk:7756)",
+						"_curDepth": 2,
+						"_maxDepth": 0,
+						"_in_cnId": 8141
+					}
+				}],
+				"id": 7768,
+				"children": [],
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2427972",
+					"boundType": 0,
+					"name": "1#",
+					"asset": "100374557887",
+					"graphId": 921,
+					"_fromStartDepth": 74,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18572,
+					"start": 8153,
+					"end": 8004,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8004,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2427944",
+					"boundType": 0,
+					"name": "2#",
+					"asset": "100374558453",
+					"graphId": 921,
+					"_fromStartDepth": 74,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18654,
+					"start": 8153,
+					"end": 7980,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7980,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2351109",
+					"boundType": 0,
+					"name": "庐江县根林食品科技有限公司",
+					"asset": "100116391665",
+					"graphId": 921,
+					"_fromStartDepth": 20,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18564,
+					"start": 8155,
+					"end": 8002,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8002,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_1799967",
+					"boundType": 0,
+					"name": "长塘强拐#10474",
+					"asset": "05cd9b68e68a0a7de554f36fc2015505cc6e762d6c",
+					"graphId": 921,
+					"_fromStartDepth": 74,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18651,
+					"start": 8142,
+					"end": 7976,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7976,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_800683",
+					"boundType": 0,
+					"name": "八里墙巷#10545",
+					"asset": "27473A62-1F20-4354-9662-CA8514B6693F-50385",
+					"graphId": 921,
+					"_fromStartDepth": 68,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18629,
+					"start": 8119,
+					"end": 8013,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8013,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_889329",
+					"boundType": 0,
+					"name": "安徽创联路桥工程有限责任公司8367824316-1",
+					"asset": "5339309847",
+					"graphId": 921,
+					"_fromStartDepth": 72,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18689,
+					"start": 8045,
+					"end": 7999,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7999,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2045489",
+					"boundType": 0,
+					"name": "安徽华诚房地产开发有限公司#2(临时用电)8367960441-1",
+					"asset": "5409772834",
+					"graphId": 921,
+					"_fromStartDepth": 16,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18634,
+					"start": 8077,
+					"end": 8015,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8015,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2332534",
+					"boundType": 0,
+					"name": "河南省大成建设工程有限公司",
+					"asset": "100048054941",
+					"graphId": 921,
+					"_fromStartDepth": 42,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18656,
+					"start": 8070,
+					"end": 7982,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7982,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2050570",
+					"boundType": 0,
+					"name": "安徽华诚房地产开发有限公司(世纪锦都小区临时用电)8368627671-1",
+					"asset": "5729078236",
+					"graphId": 921,
+					"_fromStartDepth": 22,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18684,
+					"start": 8109,
+					"end": 7996,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7996,
+				"parentId": 7763
+			}, {
+				"label": "Substation",
+				"properties": {
+					"_inLineNo": 0,
+					"mRID": "32300000_1118768",
+					"_toleafMaxLevel": 0,
+					"apptype": "1",
+					"name": "八里村民委员会1号箱变",
+					"psrType": "箱式变电站",
+					"asset": "5de0aa31bc8a0a7df8644cd4a201645de03f8c436d",
+					"graphId": 921,
+					"_fromStartLevel": 2,
+					"_fromStartDepth": 45,
+					"mdNetFlag": 0,
+					"thirdNdId": 7893,
+					"_in_acId": 7893,
+					"_in_bkId": 7784,
+					"_inPath": "(ac:7893)->(cn:8028)->(bk:7784)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8028
+				},
+				"outgoing": [{
+					"id": 9968,
+					"start": 7773,
+					"end": 7977,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 9965,
+					"start": 7773,
+					"end": 7791,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}],
+				"incoming": [{
+					"id": 18649,
+					"start": 7763,
+					"end": 7773,
+					"type": "MinLink",
+					"properties": {
+						"_inLineNo": 0,
+						"thirdNdId": 7893,
+						"_in_acId": 7893,
+						"_in_bkId": 7784,
+						"_inPath": "(ac:7893)->(cn:8028)->(bk:7784)",
+						"_curDepth": 2,
+						"_maxDepth": 0,
+						"_in_cnId": 8028
+					}
+				}],
+				"id": 7773,
+				"children": [],
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2046220",
+					"boundType": 0,
+					"name": "安徽华诚房地产开发有限公司8360080016-1",
+					"asset": "5007970431",
+					"graphId": 921,
+					"_fromStartDepth": 18,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18662,
+					"start": 8042,
+					"end": 7985,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7985,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2399504",
+					"boundType": 0,
+					"name": "庐江县城市建设投资有限公司(专用)8367772992-1",
+					"asset": "5318132060",
+					"graphId": 921,
+					"_fromStartDepth": 30,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18613,
+					"start": 8130,
+					"end": 8011,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8011,
+				"parentId": 7763
+			}, {
+				"label": "Substation",
+				"properties": {
+					"_inLineNo": 0,
+					"mRID": "30000005_1111956",
+					"_toleafMaxLevel": 0,
+					"apptype": "5",
+					"name": "21946DYQY安徽华诚房地产开发有限公司(世纪锦都小区临时用电)配电室",
+					"psrType": "配电站",
+					"asset": "SBID00000009E03C794EB840C491F9DA74EB0D8F85",
+					"graphId": 921,
+					"_fromStartDepth": 7,
+					"_fromStartLevel": 2,
+					"mdNetFlag": 0,
+					"thirdNdId": 7960,
+					"_in_acId": 7960,
+					"_in_bkId": 7967,
+					"_inPath": "(ac:7960)->(cn:8072)->(bk:7967)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8072
+				},
+				"outgoing": [{
+					"id": 9962,
+					"start": 7772,
+					"end": 7800,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}],
+				"incoming": [{
+					"id": 18648,
+					"start": 7763,
+					"end": 7772,
+					"type": "MinLink",
+					"properties": {
+						"_inLineNo": 0,
+						"thirdNdId": 7960,
+						"_in_acId": 7960,
+						"_in_bkId": 7967,
+						"_inPath": "(ac:7960)->(cn:8072)->(bk:7967)",
+						"_curDepth": 2,
+						"_maxDepth": 0,
+						"_in_cnId": 8072
+					}
+				}],
+				"id": 7772,
+				"children": [],
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_1842085",
+					"boundType": 0,
+					"name": "八里舵塘",
+					"asset": "e76e56dedc8a0a7de555cbf8da0155e76d74e5773e",
+					"graphId": 921,
+					"_fromStartDepth": 74,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18653,
+					"start": 8025,
+					"end": 7979,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7979,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_1779493",
+					"boundType": 0,
+					"name": "陶院安置房#3变",
+					"asset": "17B774E5-3464-4E10-8CE0-05F064ACB142-22336",
+					"graphId": 921,
+					"_fromStartDepth": 36,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18678,
+					"start": 8048,
+					"end": 7992,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7992,
+				"parentId": 7763
+			}, {
+				"label": "Substation",
+				"properties": {
+					"_inLineNo": 0,
+					"mRID": "32300000_1044857",
+					"_toleafMaxLevel": 0,
+					"apptype": "5",
+					"name": "合铜路与周瑜大道交口路灯",
+					"psrType": "箱式变电站",
+					"asset": "SBID000000EA10285E6794431088EC04F011AED093",
+					"graphId": 921,
+					"_fromStartLevel": 2,
+					"_fromStartDepth": 25,
+					"mdNetFlag": 0,
+					"thirdNdId": 7914,
+					"_in_acId": 7914,
+					"_in_bkId": 7782,
+					"_inPath": "(ac:7914)->(cn:8126)->(bk:7782)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8126
+				},
+				"outgoing": [{
+					"id": 8440,
+					"start": 7770,
+					"end": 7799,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 8442,
+					"start": 7770,
+					"end": 7984,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}],
+				"incoming": [{
+					"id": 18647,
+					"start": 7763,
+					"end": 7770,
+					"type": "MinLink",
+					"properties": {
+						"_inLineNo": 0,
+						"thirdNdId": 7914,
+						"_in_acId": 7914,
+						"_in_bkId": 7782,
+						"_inPath": "(ac:7914)->(cn:8126)->(bk:7782)",
+						"_curDepth": 2,
+						"_maxDepth": 0,
+						"_in_cnId": 8126
+					}
+				}],
+				"id": 7770,
+				"children": [],
+				"parentId": 7763
+			}, {
+				"label": "Breaker",
+				"properties": {
+					"container": "10000100_11757",
+					"_toleafMaxLevel": 1,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"started": false,
+					"psrType": "柱上-断路器",
+					"_fromStartLevel": 2,
+					"mRID": "11100000_144783",
+					"baseVoltage": "交流10kV",
+					"normalOpen": "close",
+					"boundType": 0,
+					"name": "啤酒厂支线＃03",
+					"asset": "SBID000000A45221422A9E46AEB1C8F5A518FA14B3",
+					"graphId": 921,
+					"_toleafMaxDepth": 4,
+					"open": "close",
+					"_fromStartDepth": 70,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"outgoing": [{
+					"id": 18738,
+					"start": 7762,
+					"end": 7774,
+					"type": "MinLink",
+					"properties": {
+						"_inLineNo": 0,
+						"thirdNdId": 7928,
+						"_in_acId": 7928,
+						"_in_bkId": 7974,
+						"_inPath": "(ac:7928)->(cn:8111)->(bk:7974)",
+						"_curDepth": 3,
+						"_maxDepth": 0,
+						"_in_cnId": 8111
+					}
+				}, {
+					"id": 18736,
+					"start": 7762,
+					"end": 8111,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7797,
+						"_auxEdge_": 0
+					}
+				}],
+				"incoming": [{
+					"id": 18641,
+					"start": 8089,
+					"end": 7762,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7762,
+				"children": [{
+					"label": "Substation",
+					"properties": {
+						"_inLineNo": 0,
+						"mRID": "30000005_515438",
+						"_toleafMaxLevel": 0,
+						"apptype": "5",
+						"name": "重庆啤酒集团庐江有限责任公司配电室2",
+						"psrType": "配电站",
+						"asset": "SBID000000429464D82B526548E053EC778A0A4132",
+						"graphId": 921,
+						"_fromStartDepth": 73,
+						"_fromStartLevel": 3,
+						"mdNetFlag": 0,
+						"thirdNdId": 7928,
+						"_in_acId": 7928,
+						"_in_bkId": 7974,
+						"_inPath": "(ac:7928)->(cn:8111)->(bk:7974)",
+						"_curDepth": 3,
+						"_maxDepth": 0,
+						"_in_cnId": 8111
+					},
+					"outgoing": [{
+						"id": 9969,
+						"start": 7774,
+						"end": 7793,
+						"type": "MinLink",
+						"properties": {
+							"boundType": "1"
+						}
+					}, {
+						"id": 9971,
+						"start": 7774,
+						"end": 8012,
+						"type": "MinLink",
+						"properties": {
+							"boundType": "1"
+						}
+					}],
+					"incoming": [{
+						"id": 18738,
+						"start": 7762,
+						"end": 7774,
+						"type": "MinLink",
+						"properties": {
+							"_inLineNo": 0,
+							"thirdNdId": 7928,
+							"_in_acId": 7928,
+							"_in_bkId": 7974,
+							"_inPath": "(ac:7928)->(cn:8111)->(bk:7974)",
+							"_curDepth": 3,
+							"_maxDepth": 0,
+							"_in_cnId": 8111
+						}
+					}],
+					"id": 7774,
+					"children": [],
+					"parentId": 7762
+				}],
+				"parentId": 7763
+			}, {
+				"label": "Breaker",
+				"properties": {
+					"container": "10000100_11757",
+					"_toleafMaxLevel": 1,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"started": false,
+					"psrType": "柱上-断路器",
+					"_fromStartLevel": 2,
+					"mRID": "11100000_144785",
+					"baseVoltage": "交流10kV",
+					"normalOpen": "close",
+					"boundType": 0,
+					"name": "柱上-断路器",
+					"asset": "SBID000000965617B5756C4768902E9C3845447E2A",
+					"graphId": 921,
+					"_toleafMaxDepth": 4,
+					"open": "close",
+					"_fromStartDepth": 70,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"outgoing": [{
+					"id": 18741,
+					"start": 7764,
+					"end": 7771,
+					"type": "MinLink",
+					"properties": {
+						"_inLineNo": 0,
+						"thirdNdId": 7886,
+						"_in_acId": 7886,
+						"_in_bkId": 7975,
+						"_inPath": "(ac:7886)->(cn:8099)->(bk:7975)",
+						"_curDepth": 3,
+						"_maxDepth": 0,
+						"_in_cnId": 8099
+					}
+				}, {
+					"id": 18739,
+					"start": 7764,
+					"end": 8099,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7798,
+						"_auxEdge_": 0
+					}
+				}],
+				"incoming": [{
+					"id": 18642,
+					"start": 8089,
+					"end": 7764,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7764,
+				"children": [{
+					"label": "Substation",
+					"properties": {
+						"_inLineNo": 0,
+						"mRID": "30000005_516325",
+						"_toleafMaxLevel": 0,
+						"apptype": "5",
+						"name": "重庆啤酒集团庐江有限责任公司配电室1",
+						"psrType": "配电站",
+						"asset": "SBID000000429464D82CF96548E053EC778A0A4132",
+						"graphId": 921,
+						"_fromStartDepth": 73,
+						"_fromStartLevel": 3,
+						"mdNetFlag": 0,
+						"thirdNdId": 7886,
+						"_in_acId": 7886,
+						"_in_bkId": 7975,
+						"_inPath": "(ac:7886)->(cn:8099)->(bk:7975)",
+						"_curDepth": 3,
+						"_maxDepth": 0,
+						"_in_cnId": 8099
+					},
+					"outgoing": [{
+						"id": 9960,
+						"start": 7771,
+						"end": 7981,
+						"type": "MinLink",
+						"properties": {
+							"boundType": "1"
+						}
+					}, {
+						"id": 8514,
+						"start": 7771,
+						"end": 7794,
+						"type": "MinLink",
+						"properties": {
+							"boundType": "1"
+						}
+					}],
+					"incoming": [{
+						"id": 18741,
+						"start": 7764,
+						"end": 7771,
+						"type": "MinLink",
+						"properties": {
+							"_inLineNo": 0,
+							"thirdNdId": 7886,
+							"_in_acId": 7886,
+							"_in_bkId": 7975,
+							"_inPath": "(ac:7886)->(cn:8099)->(bk:7975)",
+							"_curDepth": 3,
+							"_maxDepth": 0,
+							"_in_cnId": 8099
+						}
+					}],
+					"id": 7771,
+					"children": [],
+					"parentId": 7764
+				}],
+				"parentId": 7763
+			}, {
+				"label": "Substation",
+				"properties": {
+					"_inLineNo": 0,
+					"mRID": "32300000_1118771",
+					"_toleafMaxLevel": 0,
+					"apptype": "1",
+					"name": "八里村民委员会2号箱变",
+					"psrType": "箱式变电站",
+					"asset": "5e1739bc678a0a7df8644cd4a201645e16caaa4b28",
+					"graphId": 921,
+					"_fromStartLevel": 2,
+					"_fromStartDepth": 45,
+					"mdNetFlag": 0,
+					"thirdNdId": 7952,
+					"_in_acId": 7952,
+					"_in_bkId": 7788,
+					"_inPath": "(ac:7952)->(cn:8039)->(bk:7788)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8039
+				},
+				"outgoing": [{
+					"id": 21821,
+					"start": 7767,
+					"end": 7994,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21823,
+					"start": 7767,
+					"end": 7807,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}],
+				"incoming": [{
+					"id": 18644,
+					"start": 7763,
+					"end": 7767,
+					"type": "MinLink",
+					"properties": {
+						"_inLineNo": 0,
+						"thirdNdId": 7952,
+						"_in_acId": 7952,
+						"_in_bkId": 7788,
+						"_inPath": "(ac:7952)->(cn:8039)->(bk:7788)",
+						"_curDepth": 2,
+						"_maxDepth": 0,
+						"_in_cnId": 8039
+					}
+				}],
+				"id": 7767,
+				"children": [],
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2391756",
+					"boundType": 0,
+					"name": "#3备用",
+					"asset": "100258388160",
+					"graphId": 921,
+					"_fromStartDepth": 12,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18559,
+					"start": 8043,
+					"end": 8000,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8000,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_936919",
+					"boundType": 0,
+					"name": "陶院安置房#1变",
+					"asset": "A6840FE3-337E-4C01-ADCD-3A9E6F324711-82849",
+					"graphId": 921,
+					"_fromStartDepth": 34,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18686,
+					"start": 8106,
+					"end": 7998,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7998,
+				"parentId": 7763
+			}, {
+				"label": "Breaker",
+				"properties": {
+					"container": "10000100_11757",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"started": false,
+					"psrType": "柱上-断路器",
+					"_fromStartLevel": 2,
+					"mRID": "11100000_234521",
+					"baseVoltage": "交流10kV",
+					"normalOpen": "open",
+					"boundType": 0,
+					"name": "迎松北185/军二路123联络开关",
+					"asset": "SBID000000CC5104A870AB4B008D4D34200F7B1FA5",
+					"graphId": 921,
+					"_fromStartDepth": 74,
+					"open": "open",
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18635,
+					"start": 8123,
+					"end": 7759,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7759,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_2052116",
+					"boundType": 0,
+					"name": "墙巷路灯公变#10545",
+					"asset": "94f91a30978a0a7deb5837f3f9015894f62d1a63ef",
+					"graphId": 921,
+					"_fromStartDepth": 74,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18579,
+					"start": 8123,
+					"end": 8005,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8005,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"_outLineNo": 0,
+					"mRID": "11000000_1768603",
+					"boundType": 0,
+					"name": "三里小学#13343",
+					"asset": "6003663ebc8a0a7df950515ada0150600346a52ace",
+					"graphId": 921,
+					"_fromStartDepth": 8,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18666,
+					"start": 8072,
+					"end": 7987,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7987,
+				"parentId": 7763
+			}, {
+				"label": "Substation",
+				"properties": {
+					"mRID": "32300000_1027416",
+					"_toleafMaxLevel": 0,
+					"apptype": "1",
+					"name": "陶院安置房(二期)4#站房",
+					"psrType": "箱式变电站",
+					"asset": "dfdc476db28a0a7df0575cee0d0157dfda2aa51bb9",
+					"graphId": 921,
+					"_fromStartLevel": 2,
+					"_fromStartDepth": 25,
+					"mdNetFlag": 0,
+					"thirdNdId": 7954,
+					"_in_acId": 7954,
+					"_in_bkId": 7802,
+					"_inPath": "(ac:7954)->(cn:8141)->(bk:7802)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8141
+				},
+				"outgoing": [{
+					"id": 21842,
+					"start": 7769,
+					"end": 7802,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21848,
+					"start": 7769,
+					"end": 7804,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21839,
+					"start": 7769,
+					"end": 7978,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21850,
+					"start": 7769,
+					"end": 8014,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21843,
+					"start": 7769,
+					"end": 7995,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21846,
+					"start": 7769,
+					"end": 7790,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}],
+				"incoming": [{
+					"id": 18646,
+					"start": 7763,
+					"end": 7769,
+					"type": "MinLink",
+					"properties": {
+						"thirdNdId": 7954,
+						"_in_acId": 7954,
+						"_in_bkId": 7802,
+						"_inPath": "(ac:7954)->(cn:8141)->(bk:7802)",
+						"_curDepth": 2,
+						"_maxDepth": 0,
+						"_in_cnId": 8141
+					}
+				}],
+				"id": 7769,
+				"children": [],
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2048727",
+					"boundType": 0,
+					"name": "庐江县庐城镇八里村民委员会(临时用电)",
+					"asset": "6320851514",
+					"graphId": 921,
+					"_fromStartDepth": 14,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18670,
+					"start": 8104,
+					"end": 7988,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7988,
+				"parentId": 7763
+			}, {
+				"label": "Breaker",
+				"properties": {
+					"container": "10000100_11757",
+					"_toleafMaxLevel": 1,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"started": false,
+					"psrType": "柱上-断路器",
+					"_fromStartLevel": 2,
+					"mRID": "11100000_218048",
+					"baseVoltage": "交流10kV",
+					"normalOpen": "close",
+					"boundType": 0,
+					"name": "建设路12311支线开关",
+					"asset": "57c42a577f8a0a7df0661344ba016657c1f7b70fb1",
+					"graphId": 921,
+					"_toleafMaxDepth": 4,
+					"open": "close",
+					"_fromStartDepth": 52,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"outgoing": [{
+					"id": 18690,
+					"start": 7758,
+					"end": 8132,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 8016,
+						"_auxEdge_": 0
+					}
+				}],
+				"incoming": [{
+					"id": 18632,
+					"start": 8134,
+					"end": 7758,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7758,
+				"children": [{
+					"label": "PowerTransformer",
+					"properties": {
+						"container": "10000100_11757",
+						"vectorGroup": "YDn11",
+						"_toleafMaxLevel": 0,
+						"containerType": "Feeder",
+						"apptype": "5",
+						"psrType": "柱上-用户变压器",
+						"_fromStartLevel": 3,
+						"mRID": "11000001_1859442",
+						"boundType": 0,
+						"name": "中国联合网络通信有限公司合肥市分公司8368265215-1",
+						"asset": "5494307734",
+						"graphId": 921,
+						"_fromStartDepth": 56,
+						"thirdNdId": 7758,
+						"_auxEdge_": 1
+					},
+					"incoming": [{
+						"id": 18691,
+						"start": 8132,
+						"end": 8016,
+						"type": "MinConnect",
+						"properties": {
+							"thirdNdId": 7758,
+							"_auxEdge_": 1
+						}
+					}],
+					"id": 8016,
+					"parentId": 7758
+				}, {
+					"label": "PowerTransformer",
+					"properties": {
+						"container": "10000100_11757",
+						"vectorGroup": "YDn11",
+						"_toleafMaxLevel": 0,
+						"containerType": "Feeder",
+						"apptype": "5",
+						"psrType": "柱上-用户变压器",
+						"_fromStartLevel": 3,
+						"mRID": "11000001_2260970",
+						"boundType": 0,
+						"name": "安徽双丰建设集团有限公司(临时用电)",
+						"asset": "6683116855",
+						"graphId": 921,
+						"_fromStartDepth": 56,
+						"thirdNdId": 7758,
+						"_auxEdge_": 1
+					},
+					"incoming": [{
+						"id": 18720,
+						"start": 8132,
+						"end": 8007,
+						"type": "MinConnect",
+						"properties": {
+							"thirdNdId": 7758,
+							"_auxEdge_": 1
+						}
+					}],
+					"id": 8007,
+					"parentId": 7758
+				}, {
+					"label": "PowerTransformer",
+					"properties": {
+						"container": "10000100_11757",
+						"vectorGroup": "YDn11",
+						"_toleafMaxLevel": 0,
+						"containerType": "Feeder",
+						"apptype": "5",
+						"psrType": "柱上-用户变压器",
+						"_fromStartLevel": 3,
+						"mRID": "11000001_2260948",
+						"boundType": 0,
+						"name": "合肥龙盛建设工程有限公司庐江分公司(临时用电)",
+						"asset": "6685075713",
+						"graphId": 921,
+						"_fromStartDepth": 56,
+						"thirdNdId": 7758,
+						"_auxEdge_": 1
+					},
+					"incoming": [{
+						"id": 18697,
+						"start": 8132,
+						"end": 8001,
+						"type": "MinConnect",
+						"properties": {
+							"thirdNdId": 7758,
+							"_auxEdge_": 1
+						}
+					}],
+					"id": 8001,
+					"parentId": 7758
+				}, {
+					"label": "PowerTransformer",
+					"properties": {
+						"container": "10000100_11757",
+						"vectorGroup": "YDn11",
+						"_toleafMaxLevel": 0,
+						"containerType": "Feeder",
+						"apptype": "5",
+						"psrType": "柱上-用户变压器",
+						"_fromStartLevel": 3,
+						"mRID": "11000001_2260971",
+						"boundType": 0,
+						"name": "庐江宏志建设工程有限公司(临时用电)",
+						"asset": "6683214186",
+						"graphId": 921,
+						"_fromStartDepth": 56,
+						"thirdNdId": 7758,
+						"_auxEdge_": 1
+					},
+					"incoming": [{
+						"id": 18703,
+						"start": 8132,
+						"end": 8006,
+						"type": "MinConnect",
+						"properties": {
+							"thirdNdId": 7758,
+							"_auxEdge_": 1
+						}
+					}],
+					"id": 8006,
+					"parentId": 7758
+				}],
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_800682",
+					"boundType": 0,
+					"name": "八里查店#10543",
+					"asset": "58D4445F-74D5-4AE6-BA93-F644D0DA53EE-77041",
+					"graphId": 921,
+					"_fromStartDepth": 74,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18590,
+					"start": 8076,
+					"end": 8009,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8009,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_800680",
+					"boundType": 0,
+					"name": "八里老岗#10544",
+					"asset": "58D4445F-74D5-4AE6-BA93-F644D0DA53EE-77889",
+					"graphId": 921,
+					"_fromStartDepth": 66,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18585,
+					"start": 8152,
+					"end": 8008,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8008,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_799633",
+					"boundType": 0,
+					"name": "八里新街#10547",
+					"asset": "8DA6B056-22C3-4C1A-9847-AF47857C24C6-46170",
+					"graphId": 921,
+					"_fromStartDepth": 50,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18658,
+					"start": 8060,
+					"end": 7983,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7983,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_2048726",
+					"boundType": 0,
+					"name": "庐江县重点工程建设管理局(陶院安置房13#14#15#专用)",
+					"asset": "5986057977",
+					"graphId": 921,
+					"_fromStartDepth": 10,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18674,
+					"start": 8036,
+					"end": 7990,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7990,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_800681",
+					"boundType": 0,
+					"name": "八里团山#10546",
+					"asset": "D856A504-E976-4CCD-AE4D-92A60B3A9AF5-93300",
+					"graphId": 921,
+					"_fromStartDepth": 76,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18601,
+					"start": 8150,
+					"end": 8010,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8010,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "5",
+					"psrType": "柱上-用户变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000001_892133",
+					"boundType": 0,
+					"name": "八里收费站8300211545-1",
+					"asset": "49850443",
+					"graphId": 921,
+					"_fromStartDepth": 62,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18672,
+					"start": 8047,
+					"end": 7989,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7989,
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_800679",
+					"boundType": 0,
+					"name": "八里兴塘#10548",
+					"asset": "31F45236-65D6-4125-AFDC-7BC142E0CCC4-75612",
+					"graphId": 921,
+					"_fromStartDepth": 78,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18676,
+					"start": 8118,
+					"end": 7991,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 7991,
+				"parentId": 7763
+			}, {
+				"label": "Substation",
+				"properties": {
+					"mRID": "32300000_1027444",
+					"_toleafMaxLevel": 0,
+					"apptype": "1",
+					"name": "陶院安置房(二期)5#站房",
+					"psrType": "箱式变电站",
+					"asset": "dfec2b49728a0a7df0575cee0d0157dfea0e251c34",
+					"graphId": 921,
+					"_fromStartLevel": 2,
+					"_fromStartDepth": 25,
+					"mdNetFlag": 0,
+					"thirdNdId": 7954,
+					"_in_acId": 7954,
+					"_in_bkId": 7804,
+					"_inPath": "(ac:7954)->(cn:8141)->(bk:7804)",
+					"_curDepth": 2,
+					"_maxDepth": 0,
+					"_in_cnId": 8141
+				},
+				"outgoing": [{
+					"id": 21816,
+					"start": 7766,
+					"end": 7995,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21812,
+					"start": 7766,
+					"end": 7802,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21805,
+					"start": 7766,
+					"end": 8014,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21814,
+					"start": 7766,
+					"end": 7978,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21818,
+					"start": 7766,
+					"end": 7790,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}, {
+					"id": 21810,
+					"start": 7766,
+					"end": 7804,
+					"type": "MinLink",
+					"properties": {
+						"boundType": "1"
+					}
+				}],
+				"incoming": [{
+					"id": 18643,
+					"start": 7763,
+					"end": 7766,
+					"type": "MinLink",
+					"properties": {
+						"thirdNdId": 7954,
+						"_in_acId": 7954,
+						"_in_bkId": 7804,
+						"_inPath": "(ac:7954)->(cn:8141)->(bk:7804)",
+						"_curDepth": 2,
+						"_maxDepth": 0,
+						"_in_cnId": 8141
+					}
+				}],
+				"id": 7766,
+				"children": [],
+				"parentId": 7763
+			}, {
+				"label": "PowerTransformer",
+				"properties": {
+					"container": "10000100_11757",
+					"vectorGroup": "YDn11",
+					"_toleafMaxLevel": 0,
+					"containerType": "Feeder",
+					"apptype": "1",
+					"psrType": "柱上-变压器",
+					"_fromStartLevel": 2,
+					"mRID": "11000000_799635",
+					"boundType": 0,
+					"name": "八岔台区#10542",
+					"asset": "7A04CF8B-3E0A-460F-933F-A047E146232B-84800",
+					"graphId": 921,
+					"_fromStartDepth": 72,
+					"thirdNdId": 7763,
+					"_auxEdge_": 1
+				},
+				"incoming": [{
+					"id": 18568,
+					"start": 8022,
+					"end": 8003,
+					"type": "MinConnect",
+					"properties": {
+						"thirdNdId": 7763,
+						"_auxEdge_": 1
+					}
+				}],
+				"id": 8003,
+				"parentId": 7763
+			}],
+			"parentId": 7761
+		}],
+		"parentId": 8019
+	}]
+}

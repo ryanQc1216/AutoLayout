@@ -367,5 +367,11 @@ class Layout:
                     self.update_related_groups(group_id)
                     self.layer_info = self.update_layer_info()
 
+        # log layer_info
+        for layer_id in self.layer_info:
+            for group_id in self.layer_info[layer_id]:
+                print(' [layer %d] - [group %d], contain: %d' %(layer_id, group_id, len(self.groups[group_id].contains)))
+
         ins_render = Render(self.maps, self.groups)
         ins_render.render()
+
