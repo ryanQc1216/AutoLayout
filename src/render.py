@@ -3,6 +3,7 @@ import cv2
 import json
 import copy
 import numpy as np
+import random
 
 MAX_VALUE = 1e6
 MIN_VALUE = -1e6
@@ -66,7 +67,7 @@ class Render:
                 parent_node_coord = self.maps[parent_node_id].absolute_coord
                 start_pt = (parent_node_coord.x+int(text_width/2) + self.offset_x, parent_node_coord.y + self.offset_y)
                 end_pt = (int((lt.x+rb.x)/2) + self.offset_x, lt.y + self.offset_y)
-                cv2.line(image, start_pt, end_pt, (0, 0, 255), 1)
+                cv2.line(image, start_pt, end_pt, (0, 255, 0), 1)
 
         cv2.imshow('canvas', image)
         cv2.imwrite('./canvas.jpg', image)

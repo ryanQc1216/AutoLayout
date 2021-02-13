@@ -20,8 +20,8 @@ class Layout:
     def __init__(self, description):
         # static param
         self.ratio_standard = 4/3
-        self.ratio_score_weight = 0.9
-        self.move_score_weight = 0.1
+        self.ratio_score_weight = 0.7
+        self.move_score_weight = 0.3
         self.max_loop_support = 999
 
         self.description = description
@@ -159,6 +159,7 @@ class Layout:
         pass
 
     def sort_by_parent_cx(self, group_ids):
+
         group_ids_sort = group_ids.copy()
         for i in range(len(group_ids_sort)):
             for j in range(i + 1, len(group_ids_sort)):
@@ -183,6 +184,8 @@ class Layout:
         for layer_index in layer_info:
             if layer_index == 0:
                 continue
+            if layer_index == 7:
+                kk = 1
             group_ids = layer_info[layer_index]
             layer_info[layer_index] = self.sort_by_parent_cx(group_ids)
         return layer_info
@@ -298,6 +301,10 @@ class Layout:
             return all_placement_order
 
     def search_movement_policy(self, layer_id):
+        if layer_id==7:
+            x_3786 = self.maps[3786].absolute_coord.x
+            x_3787 = self.maps[3787].absolute_coord.x
+            kk = 1
         # group_ids is ordered from left to right
         group_ids = self.layer_info[layer_id].copy()
         original_bbox = {}
@@ -322,6 +329,7 @@ class Layout:
                 movement_score = self.calc_placement_movement_score(original_bbox, already_placement)
                 ratio_score = self.calc_placement_ratio_score(already_placement, previous_range)
                 score = movement_score*self.move_score_weight + ratio_score*self.ratio_score_weight
+                #score = movement_score
                 if score > best_placement_info['score']:
                     best_placement_info = {'placement': already_placement,
                                            'score': score,
@@ -330,11 +338,20 @@ class Layout:
         assert best_placement_info['placement'] is not None, 'Error in search_minimal_movement_policy!!'
         return best_placement_info
 
+    # 1) 定义
+    #    Node , 每一个待绘制的节点
+    #    Group , 具有公共Parent的Node集合
+    #    Layer , 到起始节点有相同距离的Group集合
+    # 2) 搜索目标 (用于计算候选Placement方案的得分值)
+    #    a) 绘制时不能有交叉线
+    #    b) 尽量保持4:3的全图比例
+    #    c) 尽量让Children所形成的Group的x中心到Parent的x位置距离最小
+    # 3) 搜索步骤 (NP问题，目前解耦成启发式搜索)
+    #    a) 解析Json拓扑，形成初始的Node、Group、Layer
+    #    b) 逐个Layer进行Group的重排，重排过程中计算当前方案的得分(按照搜索目标的设定)
+    #    c) 目前Group重排只改变其x坐标，且不改变内部Node的排列顺序
+    #    d) 单次遍历Layer后完成拓扑计算，返回各个Node坐标(或Grid的划分)
 
-    # placement layer by layer
-    # 1) Layer by Layer 的遍历Group
-    # 2) 每次检查当前layer内部group重叠情况，以IOU作为得分 (如果默认没有重叠，则不改变原json顺序)
-    # 3) 如果最小IOU仍然重叠，则尝试移动某些Group来满足无重叠的要求，a)最小移动的Group个数，b)不改变当前Group的顺序(无交叉线)
     def placement_group(self):
         for layer_id in self.layer_info:
             overlap = self.calc_layer_group_overlap(layer_id)
@@ -348,6 +365,7 @@ class Layout:
                                                               sy=update_sy,
                                                               maps=self.maps)
                     self.update_related_groups(group_id)
+                    self.layer_info = self.update_layer_info()
 
         ins_render = Render(self.maps, self.groups)
         ins_render.render()
