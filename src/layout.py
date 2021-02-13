@@ -5,8 +5,9 @@ import copy
 import numpy as np
 import itertools
 import functools
+import random
 from src.node import Coordinate, Node, Group, get_default_text_size
-from src.render import Render, MAX_POS_VALUE, MIN_POS_VALUE, SMALL_POS_VALUE
+from src.render import Render, MAX_VALUE, MIN_VALUE, SMALL_VALUE
 
 
 def parsing_children_description(description):
@@ -17,8 +18,13 @@ def parsing_children_description(description):
 
 class Layout:
     def __init__(self, description):
-        self.description = description
+        # static param
+        self.ratio_standard = 4/3
+        self.ratio_score_weight = 0.9
+        self.move_score_weight = 0.1
         self.max_loop_support = 999
+
+        self.description = description
         self.start_parent_id = -1
         self.maps, self.groups = self.translate_maps()
         self.replace_groups_key()
@@ -26,6 +32,8 @@ class Layout:
         self.init_group_coord()
         self.layer_info = self.update_layer_info()
         self.placement_group()
+
+
 
     def translate_maps(self):
         maps = dict()
@@ -202,8 +210,8 @@ class Layout:
         return overlap
 
     def find_valid_placement_area(self, group_id, group_ids, already_placement):
-        start_x = MIN_POS_VALUE
-        end_x = MAX_POS_VALUE
+        start_x = MIN_VALUE
+        end_x = MAX_VALUE
         left_group_ids = group_ids[:group_ids.index(group_id)]
         right_group_ids = group_ids[group_ids.index(group_id) + 1:]
         border = self.groups[group_id].boarder
@@ -232,29 +240,74 @@ class Layout:
             return original_bbox[0] - distance, original_bbox[1], original_bbox[2] - distance, original_bbox[3]
         raise Exception('Error Happened in constrain_placement_group')
 
-    def calc_placement_movement_cost(self, original_bbox_info, update_bbox_info):
-        move_cnt = 0
+    def calc_placement_movement_score(self, original_bbox_info, update_bbox_info):
+        total_width = 0
         move_dis = 0
+        delta = 0.1
         for group_id in original_bbox_info:
             contain_num = len(self.groups[group_id].contains)
             dis = abs(original_bbox_info[group_id][0] - update_bbox_info[group_id][0])
-            if dis > SMALL_POS_VALUE:
-                move_cnt += contain_num
-                move_dis += move_dis
-        return move_cnt, move_dis
+            move_dis += dis*contain_num
+            total_width += original_bbox_info[group_id][2] - original_bbox_info[group_id][0]
+        score = 1 - min(1.0, (move_dis*delta/total_width))
+        return score
 
-    def search_minimal_movement_policy(self, layer_id):
-        if layer_id==7:
-            kk = 1
+    def calc_previous_placement_range(self, curr_layer_id):
+        min_x, min_y = MAX_VALUE, MAX_VALUE
+        max_x, max_y = MIN_VALUE, MIN_VALUE
+        for layer_id in self.layer_info:
+            group_ids = self.layer_info[layer_id]
+            for group_id in group_ids:
+                for node_id in self.groups[group_id].contains:
+                    min_y = min(self.maps[node_id].absolute_coord.y, min_y)
+                    max_y = max(self.maps[node_id].absolute_coord.y, max_y)
+                    if layer_id <= curr_layer_id:
+                        min_x = min(self.maps[node_id].absolute_coord.x, min_x)
+                        max_x = max(self.maps[node_id].absolute_coord.x, max_x)
+                        pass
+        return min_x, min_y, max_x, max_y
+
+    def calc_placement_ratio_score(self, update_bbox_info, previous_range):
+        update_sx = previous_range[0]
+        update_ex = previous_range[2]
+        for group_id in update_bbox_info:
+            update_sx = min(update_bbox_info[group_id][0], update_sx)
+            update_ex = max(update_bbox_info[group_id][2], update_ex)
+        width = update_ex - update_sx
+        height = previous_range[3] - previous_range[1]
+        ratio = width/height
+        delta = 2.0
+        score = 1 - abs(self.ratio_standard-ratio)/delta
+        score = min(1.0, max(score, 0))
+        return score
+
+    def calc_all_placement_order(self, group_ids):
+        group_num_thresh = 8
+        if len(group_ids) <= group_num_thresh:
+            all_placement_order = list(itertools.permutations(group_ids))
+            return all_placement_order
+        else:
+            all_placement_order = [group_ids.copy()]
+            indexes = [x for x in range(len(group_ids))]
+            while len(all_placement_order) < self.max_loop_support:
+                random.shuffle(indexes)
+                placement = []
+                for idx in indexes:
+                    placement.append(group_ids[idx])
+                all_placement_order.append(placement)
+            return all_placement_order
+
+    def search_movement_policy(self, layer_id):
         # group_ids is ordered from left to right
         group_ids = self.layer_info[layer_id].copy()
         original_bbox = {}
         for group_id in group_ids:
             original_bbox[group_id] = self.groups[group_id].get_bbox_as_list().copy()
-        best_placement_info = {'placement': None, 'move_cnt': MAX_POS_VALUE, 'move_dis': MAX_POS_VALUE}
-
-        all_placement_order = list(itertools.permutations(group_ids))[:self.max_loop_support]
+        best_placement_info = {'placement': None, 'score': MIN_VALUE,
+                               'movement_score': MIN_VALUE, 'ratio_score': MIN_VALUE}
+        all_placement_order = self.calc_all_placement_order(group_ids)
         print('layer %d generate all placement order %d' % (layer_id, len(all_placement_order)))
+        previous_range = self.calc_previous_placement_range(layer_id)
         for placement_order in all_placement_order:
             already_placement = dict()  # {saved_new_bbox}
             for idx in range(len(placement_order)):
@@ -266,10 +319,14 @@ class Layout:
                 already_placement[group_id] = update_bbox
                 pass
             if len(already_placement) == len(group_ids):
-                move_cnt, move_dis = self.calc_placement_movement_cost(original_bbox, already_placement)
-                if (move_cnt < best_placement_info['move_cnt']) or \
-                        (move_cnt == best_placement_info['move_cnt'] and move_dis == best_placement_info['move_dis']):
-                    best_placement_info = {'placement': already_placement, 'move_cnt': move_cnt, 'move_dis': move_dis}
+                movement_score = self.calc_placement_movement_score(original_bbox, already_placement)
+                ratio_score = self.calc_placement_ratio_score(already_placement, previous_range)
+                score = movement_score*self.move_score_weight + ratio_score*self.ratio_score_weight
+                if score > best_placement_info['score']:
+                    best_placement_info = {'placement': already_placement,
+                                           'score': score,
+                                           'movement_score': movement_score,
+                                           'ratio_score': ratio_score}
         assert best_placement_info['placement'] is not None, 'Error in search_minimal_movement_policy!!'
         return best_placement_info
 
@@ -279,17 +336,10 @@ class Layout:
     # 2) 每次检查当前layer内部group重叠情况，以IOU作为得分 (如果默认没有重叠，则不改变原json顺序)
     # 3) 如果最小IOU仍然重叠，则尝试移动某些Group来满足无重叠的要求，a)最小移动的Group个数，b)不改变当前Group的顺序(无交叉线)
     def placement_group(self):
-        # self.groups[9].assign_group_offset(sx=self.groups[9].lt.x - 300,
-        #                                    sy=self.groups[9].lt.y,
-        #                                    maps=self.maps)
-        # self.update_related_groups(9)
-
         for layer_id in self.layer_info:
-            if layer_id ==7:
-                break
             overlap = self.calc_layer_group_overlap(layer_id)
             if overlap > 0:
-                placement_dict = self.search_minimal_movement_policy(layer_id)
+                placement_dict = self.search_movement_policy(layer_id)
                 print('update layer %d' % layer_id, placement_dict)
                 for group_id in placement_dict['placement']:
                     update_sx = placement_dict['placement'][group_id][0]

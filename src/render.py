@@ -4,9 +4,9 @@ import json
 import copy
 import numpy as np
 
-MAX_POS_VALUE = 1e6
-MIN_POS_VALUE = -1e6
-SMALL_POS_VALUE = 1e-6
+MAX_VALUE = 1e6
+MIN_VALUE = -1e6
+SMALL_VALUE = 1e-6
 
 FONT_SCALE = 0.8
 
@@ -30,8 +30,8 @@ class Render:
         pass
 
     def calc_position_range(self):
-        min_x, min_y = MAX_POS_VALUE, MAX_POS_VALUE
-        max_x, max_y = MIN_POS_VALUE, MIN_POS_VALUE
+        min_x, min_y = MAX_VALUE, MAX_VALUE
+        max_x, max_y = MIN_VALUE, MIN_VALUE
 
         for node_id in self.maps:
             min_x = min(self.maps[node_id].absolute_coord.x, min_x)
