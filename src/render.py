@@ -6,6 +6,7 @@ import numpy as np
 
 MAX_POS_VALUE = 1e6
 MIN_POS_VALUE = -1e6
+SMALL_POS_VALUE = 1e-6
 
 FONT_SCALE = 0.8
 

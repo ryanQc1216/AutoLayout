@@ -7,7 +7,6 @@ import numpy as np
 from src.render import get_default_text_size
 
 
-
 class Coordinate:
     def __init__(self, x=None, y=None):
         self.x = x
@@ -87,3 +86,6 @@ class Group:
         if self.lt.x is None or self.lt.y is None:
             return False
         return True
+
+    def get_bbox_as_list(self):
+        return [self.lt.x, self.lt.y, self.rb.x, self.rb.y]
