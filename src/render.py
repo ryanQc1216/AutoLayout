@@ -57,6 +57,8 @@ class Render:
             cv2.rectangle(image,
                           (lt.x + self.offset_x, lt.y + self.offset_y), (rb.x + self.offset_x, rb.y + self.offset_y),
                           (0, 0, 255), 1)
+            cv2.putText(image, '%d' % group_id, (lt.x + self.offset_x, lt.y + self.offset_y),
+                        fontFace=cv2.FONT_HERSHEY_PLAIN, fontScale=FONT_SCALE, color=(0, 0, 255), thickness=1)
 
             parent_node_id = self.groups[group_id].parent_node_id
             if parent_node_id in self.maps:

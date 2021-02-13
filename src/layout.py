@@ -3,7 +3,7 @@ import cv2
 import json
 import copy
 import numpy as np
-from src.node import Coordinate, Node, Group,get_default_text_size
+from src.node import Coordinate, Node, Group, get_default_text_size
 from src.render import Render
 
 
@@ -93,65 +93,59 @@ class Layout:
         else:
             return False
 
+    def node_id_to_group_id(self, node_id):
+        group_id = self.maps[node_id].group_id
+        return group_id
+
+    def inference_children_group_coord(self, parent_node_id, children_group_id):
+        parent_group_id = self.node_id_to_group_id(parent_node_id)
+        text_width, text_height = get_default_text_size()
+        children_group_cx = self.maps[parent_node_id].absolute_coord.x + int(text_width / 2)
+        children_group_sy = self.groups[parent_group_id].rb.y + text_width
+        children_group_sx = children_group_cx - int(self.groups[children_group_id].bbox_size[0] / 2)
+        return children_group_sx, children_group_sy
+
     def calc_canvas(self):
         self.maps = self.maps
         self.groups = self.groups
-        text_width, text_height = get_default_text_size()
-
-        self.groups[0].assign_group_bbox(sx=0, sy=0, maps=self.maps)
+        self.groups[0].assign_group_offset(sx=0, sy=0, maps=self.maps)
         while self.check_all_group_assigned() is False:
             for group_id in self.groups:
                 parent_node_id = self.groups[group_id].parent_node_id
                 if parent_node_id == self.start_parent_id or self.groups[group_id].valid_bbox_lt() is True:
                     continue
-                parent_group_id = self.maps[parent_node_id].group_id
+                parent_group_id = self.node_id_to_group_id(parent_node_id)
                 if self.groups[parent_group_id].valid_bbox_lt() is False:
                     continue
-                this_group_cx = self.maps[parent_node_id].absolute_coord.x + int(text_width/2)
-                this_group_sy = self.groups[parent_group_id].rb.y + text_width
-                this_group_sx = this_group_cx - int(self.groups[group_id].bbox_size[0]/2)
-                self.groups[group_id].assign_group_bbox(sx=this_group_sx, sy=this_group_sy, maps=self.maps)
+                sx, sy = self.inference_children_group_coord(parent_node_id, group_id)
+                self.groups[group_id].assign_group_offset(sx=sx, sy=sy, maps=self.maps)
                 pass
+
+        self.groups[9].assign_group_offset(sx=self.groups[9].lt.x - 300,
+                                           sy=self.groups[9].lt.y,
+                                           maps=self.maps)
+        self.update_related_groups(9)
         ins_render = Render(self.maps, self.groups)
         ins_render.render()
         pass
 
-    # def calc_pos_by_parent(self, layer_step, node_step, parent_node_id, contains):
-    #     parent_x = self.maps[parent_node_id].absolute_coord.x
-    #     parent_y = self.maps[parent_node_id].absolute_coord.y
-    #     width = (len(contains) - 1) * node_step
-    #     start_x = - width / 2.0
-    #     positions = []
-    #     for idx in range(len(contains)):
-    #         temp_x = parent_x + start_x + idx * node_step
-    #         temp_y = parent_y + layer_step
-    #         positions.append((int(temp_x), int(temp_y)))
-    #     return positions
-    #
-    # def calc_canvas(self):
-    #     maps = self.maps
-    #     groups = self.raw_groups
-    #     text_size = self.get_text_size()
-    #     layer_step = text_size[0] * 2
-    #     node_step = text_size[0] * 2
-    #
-    #     # assign first node's position
-    #     start_node_id = groups[self.start_parent_id].contains[0]
-    #     maps[start_node_id].assign_absolute_coord(x=0, y=0)
-    #
-    #     while self.check_all_node_position_assigned() is False:
-    #         for parent_node_id in groups:
-    #             if parent_node_id == self.start_parent_id:
-    #                 continue
-    #             if self.maps[parent_node_id].valid_absolute_coord() is False:
-    #                 continue
-    #             contains = groups[parent_node_id].contains
-    #             positions = self.calc_pos_by_parent(layer_step, node_step, parent_node_id, contains)
-    #             for idx in range(len(contains)):
-    #                 node_id = contains[idx]
-    #                 self.maps[node_id].assign_absolute_coord(x=positions[idx][0], y=positions[idx][1])
-    #
-    #     ins_render = Render(self.maps)
-    #     ins_render.render()
-    #
-    #     pass
+    def update_related_groups(self, group_id):
+        contains = self.groups[group_id].contains.copy()
+        stack_info = []
+        for node_id in contains:
+            stack_info.append({'node_id': node_id, 'group_id': group_id})
+        while len(stack_info) > 0:
+            parent_info = stack_info.pop()
+            parent_node_id = parent_info['node_id']
+            parent_group_id = parent_info['group_id']
+
+            # update this parent_node_id's next group
+            if len(self.maps[parent_node_id].children) > 0:
+                first_children_id = self.maps[parent_node_id].children[0]
+                children_group_id = self.maps[first_children_id].group_id
+                sx, sy = self.inference_children_group_coord(parent_node_id, children_group_id)
+                self.groups[children_group_id].assign_group_offset(sx=sx, sy=sy, maps=self.maps)
+                for node_id in self.maps[parent_node_id].children:
+                    stack_info.append({'node_id': node_id, 'group_id': children_group_id})
+
+        kk = 1

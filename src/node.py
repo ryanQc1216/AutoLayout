@@ -75,7 +75,7 @@ class Group:
         self.bbox_size = (pos_x, pos_y)
         pass
 
-    def assign_group_bbox(self, sx, sy, maps):
+    def assign_group_offset(self, sx, sy, maps):
         self.lt.set_coord(sx, sy)
         self.rb.set_coord(sx + self.bbox_size[0], sy + self.bbox_size[1])
         # let's modify the map's valid_absolute_coord of nodes
