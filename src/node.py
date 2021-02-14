@@ -18,12 +18,12 @@ class Coordinate:
 
 
 class Node:
-    def __init__(self, node_id, layer_id, children, parent, group_id):
+    def __init__(self, node_id, children, parent, depth):
         self.node_id = node_id
-        self.layer_id = layer_id
         self.children = children
         self.parent = parent
-        self.group_id = group_id
+        self.group_id = None
+        self.depth = depth
         self.absolute_coord = Coordinate()
         self.relative_coord = Coordinate()
 
@@ -52,27 +52,23 @@ class Node:
 
 
 class Group:
-    def __init__(self, contains, group_id, layer_id, parent_node_id):
+    def __init__(self, contains, group_id, depth, parent_node_id):
         self.contains = copy.deepcopy(contains)
         self.group_id = group_id
-        self.layer_id = layer_id
+        self.depth = depth
         self.parent_node_id = parent_node_id
-        # from config , need update later
         self.text_width, self.text_height = get_default_text_size()
         self.boarder = self.text_width
+
+        # matrix of nodes
+        self.rows = None
+        self.cols = None
+
+        # from config , need update later
         self.bbox_size = None
         self.lt = Coordinate()
         self.rb = Coordinate()
-
-    def calc_relative_coord(self, maps):
-        pos_x, pos_y = self.boarder, self.boarder
-        for idx in range(len(self.contains)):
-            node_id = self.contains[idx]
-            maps[node_id].assign_relative_coord(pos_x, pos_y)
-            pos_x += self.text_width + self.boarder
-        pos_y += self.text_height + self.boarder
-        self.bbox_size = (pos_x, pos_y)
-        pass
+        self.is_stack_group = False
 
     def assign_group_offset(self, sx, sy, maps):
         self.lt.set_coord(sx, sy)
@@ -89,3 +85,58 @@ class Group:
 
     def get_bbox_as_list(self):
         return [self.lt.x, self.lt.y, self.rb.x, self.rb.y]
+
+    def pick_children_nodes(self, maps):
+        has_children = []
+        for node_id in self.contains:
+            if len(maps[node_id].children) > 0:
+                has_children.append(node_id)
+        return has_children
+
+    def modify_contains_order(self, maps):
+        has_children = self.pick_children_nodes(maps)
+        update_contains = []
+        for node_id in self.contains:
+            if node_id not in has_children:
+                update_contains.append(node_id)
+        update_contains += has_children.copy()
+        self.contains = update_contains
+
+    def assign_node_relative_coord(self, maps, max_cols_contains):
+        total_nodes = len(self.contains)
+        has_children = self.pick_children_nodes(maps)
+        if len(self.contains) <= max_cols_contains:
+            self.rows = 1
+            self.cols = total_nodes
+        elif len(has_children) == 0:
+            self.rows = total_nodes//max_cols_contains + 1
+            self.cols = max_cols_contains
+        else:
+            self.cols = max(max_cols_contains, len(has_children))
+            self.rows = total_nodes // max_cols_contains + 1
+            self.modify_contains_order(maps)
+
+        # assign from right bottom to left top
+        node_cnt = 0
+        start_y = self.boarder
+        max_x = 0
+        for row in range(0, self.rows):
+            start_x = self.boarder
+            for cols in range(0, self.cols):
+                if node_cnt >= len(self.contains):
+                    break
+                node_id = self.contains[node_cnt]
+                if node_id in has_children and row != self.rows-1:
+                    break
+                # assign here
+                maps[node_id].assign_relative_coord(start_x, start_y)
+                # end assign
+                start_x += self.text_width + self.boarder
+                max_x = max(start_x, max_x)
+                node_cnt += 1
+            start_y += self.text_height + self.boarder
+
+        box_height = start_y
+        box_width = max_x #self.cols*(self.boarder+self.text_width) + self.boarder
+        self.bbox_size = (box_width, box_height)
+        pass

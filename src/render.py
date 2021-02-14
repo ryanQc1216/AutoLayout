@@ -22,7 +22,8 @@ class Render:
         self.maps = copy.deepcopy(maps)
         self.groups = copy.deepcopy(groups)
         min_x, max_x, min_y, max_y = self.calc_position_range()
-        self.border = 50
+        text_width, text_height = get_default_text_size()
+        self.border = text_width*2
         self.offset_x = - min_x + self.border
         self.offset_y = - min_y + self.border
         self.canvas_width = max_x - min_x + 1 + self.border * 2
@@ -33,12 +34,11 @@ class Render:
     def calc_position_range(self):
         min_x, min_y = MAX_VALUE, MAX_VALUE
         max_x, max_y = MIN_VALUE, MIN_VALUE
-
-        for node_id in self.maps:
-            min_x = min(self.maps[node_id].absolute_coord.x, min_x)
-            min_y = min(self.maps[node_id].absolute_coord.y, min_y)
-            max_x = max(self.maps[node_id].absolute_coord.x, max_x)
-            max_y = max(self.maps[node_id].absolute_coord.y, max_y)
+        for group_id in self.groups:
+            min_x = min(self.groups[group_id].lt.x, min_x)
+            min_y = min(self.groups[group_id].lt.y, min_y)
+            max_x = max(self.groups[group_id].rb.x, max_x)
+            max_y = max(self.groups[group_id].rb.y, max_y)
             pass
         return min_x, max_x, min_y, max_y
 
@@ -69,6 +69,4 @@ class Render:
                 end_pt = (int((lt.x+rb.x)/2) + self.offset_x, lt.y + self.offset_y)
                 cv2.line(image, start_pt, end_pt, (0, 255, 0), 1)
 
-        cv2.imshow('canvas', image)
-        cv2.imwrite('./canvas.jpg', image)
-        cv2.waitKey(0)
+        return image

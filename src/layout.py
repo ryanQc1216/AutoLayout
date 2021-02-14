@@ -17,73 +17,82 @@ def parsing_children_description(description):
 
 
 class Layout:
-    def __init__(self, description):
+    def __init__(self, description, cfg):
         # static param
-        self.ratio_standard = 4/3
+        self.ratio_standard = cfg['ratio_standard']
+        self.max_cols_contains = cfg['max_cols_contains']
+
         self.ratio_score_weight = 0.7
         self.move_score_weight = 0.3
         self.max_loop_support = 999
 
         self.description = description
         self.start_parent_id = -1
-        self.maps, self.groups = self.translate_maps()
-        self.replace_groups_key()
-        assert self.check_all_node_relative_assigned()
+        self.maps = self.generate_maps()
+        self.groups = self.generate_groups()
+        self.calc_relative_coord()
         self.init_group_coord()
         self.layer_info = self.update_layer_info()
         self.placement_group()
 
-
-
-    def translate_maps(self):
+    def generate_maps(self):
         maps = dict()
-        groups = dict()
         children_description, children_node_id = parsing_children_description(self.description)
         start_node = Node(node_id=self.description['id'],
-                          layer_id=0,
                           children=children_node_id,
                           parent=self.start_parent_id,
-                          group_id=0)
-        groups[self.start_parent_id] = Group(contains=[self.description['id']],
-                                             group_id=0,
-                                             layer_id=0,
-                                             parent_node_id=self.start_parent_id)
+                          depth=0)
         maps[start_node.node_id] = start_node
         candidates = children_description.copy()
-
         _iter = 0
         while len(candidates) > 0 and _iter < self.max_loop_support:
             candidate = candidates.pop()
             candidate_children_description, candidate_children_node_id = parsing_children_description(candidate)
             node_id = candidate['id']
             parent_node_id = candidate['parentId']
-            parent_layer_id = maps[parent_node_id].layer_id
-            if parent_node_id not in groups:
-                groups[parent_node_id] = Group(contains=maps[parent_node_id].children.copy(),
-                                               group_id=len(groups),
-                                               layer_id=parent_layer_id + 1,
-                                               parent_node_id=parent_node_id)
-            else:
-                pass
             this_node = Node(node_id=node_id,
-                             layer_id=parent_layer_id + 1,
                              children=candidate_children_node_id,
                              parent=parent_node_id,
-                             group_id=groups[parent_node_id].group_id)
+                             depth=maps[parent_node_id].depth + 1)
             maps[node_id] = this_node
             candidates += candidate_children_description
             _iter += 1
         assert _iter < self.max_loop_support, 'Error happened in While loop'
+        return maps
 
-        for group_id in groups:
-            groups[group_id].calc_relative_coord(maps)
-        return maps, groups
+    def generate_groups(self):
+        parents_info = dict()
+        for node_id in self.maps:
+            if self.maps[node_id].parent not in parents_info:
+                parents_info[self.maps[node_id].parent] = [node_id]
+            else:
+                parents_info[self.maps[node_id].parent].append(node_id)
+        groups = dict()
+        group_id = 0
+        for parent_node_id in parents_info:
+            if parent_node_id == self.start_parent_id:
+                depth = 0
+            else:
+                depth = self.maps[parent_node_id].depth + 1
+            groups[group_id] = Group(contains=parents_info[parent_node_id].copy(),
+                                     group_id=group_id,
+                                     depth=depth,
+                                     parent_node_id=parent_node_id)
+            group_id += 1
+        return groups
 
-    def replace_groups_key(self):
-        groups_update = dict()
-        for parent_node_id in self.groups:
-            groups_update[self.groups[parent_node_id].group_id] = copy.deepcopy(self.groups[parent_node_id])
-        self.groups = groups_update
+    def calc_relative_coord(self):
+        # step 1, assign group id to nodes
+        for group_id in self.groups:
+            for node_id in self.groups[group_id].contains:
+                self.maps[node_id].group_id = group_id
+
+        # step 2, check the groups need multiple layer
+        for group_id in self.groups:
+            self.groups[group_id].assign_node_relative_coord(self.maps, self.max_cols_contains)
+
+        assert self.check_all_node_relative_assigned()
+        pass
 
     def check_all_node_relative_assigned(self):
         cnt_assigned = 0
@@ -175,7 +184,7 @@ class Layout:
     def update_layer_info(self):
         layer_info = {}
         for group_id in self.groups:
-            layer_index = self.groups[group_id].layer_id
+            layer_index = self.groups[group_id].depth
             if layer_index not in layer_info:
                 layer_info[layer_index] = [group_id]
             else:
@@ -184,8 +193,6 @@ class Layout:
         for layer_index in layer_info:
             if layer_index == 0:
                 continue
-            if layer_index == 7:
-                kk = 1
             group_ids = layer_info[layer_index]
             layer_info[layer_index] = self.sort_by_parent_cx(group_ids)
         return layer_info
@@ -290,7 +297,9 @@ class Layout:
             all_placement_order = list(itertools.permutations(group_ids))
             return all_placement_order
         else:
-            all_placement_order = [group_ids.copy()]
+            rev = group_ids.copy()
+            rev.reverse()
+            all_placement_order = [group_ids.copy(), rev]
             indexes = [x for x in range(len(group_ids))]
             while len(all_placement_order) < self.max_loop_support:
                 random.shuffle(indexes)
@@ -302,8 +311,6 @@ class Layout:
 
     def search_movement_policy(self, layer_id):
         if layer_id==7:
-            x_3786 = self.maps[3786].absolute_coord.x
-            x_3787 = self.maps[3787].absolute_coord.x
             kk = 1
         # group_ids is ordered from left to right
         group_ids = self.layer_info[layer_id].copy()
@@ -367,11 +374,11 @@ class Layout:
                     self.update_related_groups(group_id)
                     self.layer_info = self.update_layer_info()
 
+    def render(self):
+        ins_render = Render(self.maps, self.groups)
+        image = ins_render.render()
         # log layer_info
         for layer_id in self.layer_info:
             for group_id in self.layer_info[layer_id]:
                 print(' [layer %d] - [group %d], contain: %d' %(layer_id, group_id, len(self.groups[group_id].contains)))
-
-        ins_render = Render(self.maps, self.groups)
-        ins_render.render()
-
+        return image
